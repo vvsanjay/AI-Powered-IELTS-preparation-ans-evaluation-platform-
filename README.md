@@ -6,40 +6,40 @@
 ![Bandwise AI Banner](https://via.placeholder.com/1000x300?text=Bandwise+AI+-+Intelligent+IELTS+Preparation)
 
 ## 🚀 Project Overview
-**Bandwise AI** is an AI-driven platform designed to democratize IELTS preparation. [cite_start]It simulates real Speaking and Writing tests to evaluate performance and deliver personalized improvement paths[cite: 4, 10].
+**Bandwise AI** is an AI-driven platform designed to democratize IELTS preparation. [cite_start]It simulates real Speaking and Writing tests to evaluate performance and deliver personalized improvement paths.
 
-[cite_start]Unlike generic grammar checkers, Bandwise AI utilizes advanced NLP and speech processing to provide **criterion-aligned scoring** that mirrors the official IELTS band descriptors[cite: 17, 186].
+Unlike generic grammar checkers, Bandwise AI utilizes advanced NLP and speech processing to provide **criterion-aligned scoring** that mirrors the official IELTS band descriptors.
 
 ---
 
 ## 🚩 The Problem
 Candidates face immense pressure to achieve target scores, but existing tools fall short:
-* **Lack of Accuracy:** Generic tools cannot provide band estimates aligned with official descriptors[cite: 28, 29].
-* **High Costs:** Professional tutoring is expensive ($200+ per test) and not scalable[cite: 32, 35].
-***Accessibility:** Candidates need on-demand practice without waiting 2-3 weeks for feedback[cite: 33, 36].
+* **Lack of Accuracy:** Generic tools cannot provide band estimates aligned with official descriptors.
+* **High Costs:** Professional tutoring is expensive ($200+ per test) and not scalable.
+***Accessibility:** Candidates need on-demand practice without waiting 2-3 weeks for feedback.
 
 ## 💡 Our Solution
-Bandwise AI closes the gap between practice and performance with three core pillars[cite: 40, 41]:
+Bandwise AI closes the gap between practice and performance with three core pillars:
 
 ### ]1. Real-Time Speaking Evaluation [cite: 14]
-* **Speech Capture:** Real-time recording with Speech-to-Text (STT) transcription and precise timestamps[cite: 63, 64].
-* **Feature Extraction:** Analyzes audio for **Fluency (35%)**, **Lexical Resource (25%)**, **Grammar (20%)**, and **Pronunciation (20%)** [cite: 67, 72-77].
-* **Instant Feedback:** Processing time of ~45 seconds with **92% accuracy** against human raters[cite: 81, 124].
+* **Speech Capture:** Real-time recording with Speech-to-Text (STT) transcription and precise timestamps.
+* **Feature Extraction:** Analyzes audio for **Fluency (35%)**, **Lexical Resource (25%)**, **Grammar (20%)**, and **Pronunciation (20%)**.
+* **Instant Feedback:** Processing time of ~45 seconds with **92% accuracy** against human raters.
 
-### 2. Automated Writing Scoring [cite: 16]
-***Deep Analysis:** Evaluates essays based on **Task Response**, **Cohesion**, **Lexical Resource**, and **Grammar**[cite: 93, 94].
-**Rubric Mapping:** Maps features directly to official IELTS Band 1-9 scales[cite: 98].
-**Performance:** Average processing time of 32 seconds with **89% accuracy**[cite: 107, 109].
+### 2. Automated Writing Scoring
+***Deep Analysis:** Evaluates essays based on **Task Response**, **Cohesion**, **Lexical Resource**, and **Grammar*.
+**Rubric Mapping:** Maps features directly to official IELTS Band 1-9 scales.
+**Performance:** Average processing time of 32 seconds with **89% accuracy**.
 
-###3. Personalized Analytics & Adaptive Learning [cite: 22, 159]
+###3. Personalized Analytics & Adaptive Learning
 * **Micro-Drills:** Generates 5-10 minute focused exercises targeting specific skill gaps (e.g., "lexical resource" drills)[cite: 171].
-* **Progress Dashboard:** Tracks score trends over time and identifies recurring error patterns[cite: 149, 165].
+* **Progress Dashboard:** Tracks score trends over time and identifies recurring error patterns.
 
 ---
 
 ## ⚙️ Technical Architecture
 
-### Speaking Pipeline [cite: 59]
+### Speaking Pipeline
 1.  **Input:** User records speech via web/mobile interface.
 2.  **Processing:**
     * **STT Engine:** Converts speech to text with timestamps.
@@ -62,7 +62,7 @@ Bandwise AI closes the gap between practice and performance with three core pill
 * **AI/ML:**
     * *Natural Language Processing:* NLTK, Spacy, Transformers.
     * *Speech Processing:* Librosa, SpeechRecognition, PyTorch.
-  **Data:** Models validated against 5000+ human-rated responses[cite: 114].
+  **Data:** Models validated against 5000+ human-rated responses.
 
 ---
 
