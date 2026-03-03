@@ -3,7 +3,6 @@
 # Bandwise AI: AI-Powered IELTS Preparation & Evaluation Platform
 **Presented by Team Hackoholics** | *Hackathon 2026 Submission*
 
-![Bandwise AI Banner](https://via.placeholder.com/1000x300?text=Bandwise+AI+-+Intelligent+IELTS+Preparation)
 
 ## 🚀 Project Overview
 **Bandwise AI** is an AI-driven platform designed to democratize IELTS preparation. [cite_start]It simulates real Speaking and Writing tests to evaluate performance and deliver personalized improvement paths.
@@ -12,16 +11,16 @@ Unlike generic grammar checkers, Bandwise AI utilizes advanced NLP and speech pr
 
 ---
 
-## 🚩 The Problem
+ 🚩 The Problem
 Candidates face immense pressure to achieve target scores, but existing tools fall short:
 * **Lack of Accuracy:** Generic tools cannot provide band estimates aligned with official descriptors.
 * **High Costs:** Professional tutoring is expensive ($200+ per test) and not scalable.
 ***Accessibility:** Candidates need on-demand practice without waiting 2-3 weeks for feedback.
 
-## 💡 Our Solution
+💡 Our Solution
 Bandwise AI closes the gap between practice and performance with three core pillars:
 
-### ]1. Real-Time Speaking Evaluation [cite: 14]
+1. Real-Time Speaking Evaluation 
 * **Speech Capture:** Real-time recording with Speech-to-Text (STT) transcription and precise timestamps.
 * **Feature Extraction:** Analyzes audio for **Fluency (35%)**, **Lexical Resource (25%)**, **Grammar (20%)**, and **Pronunciation (20%)**.
 * **Instant Feedback:** Processing time of ~45 seconds with **92% accuracy** against human raters.
