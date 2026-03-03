@@ -46,7 +46,7 @@ Bandwise AI closes the gap between practice and performance with three core pill
     * **NLP Engine:** Analyzes vocabulary richness and grammatical range.
 3.  **Output:** Band score (1-9) + Actionable feedback.
 
-### Writing Pipeline [cite: 87]
+### Writing Pipeline 
 1.  **Input:** User submits essay (Task 1 or Task 2).
 2.  **Processing:**
     * **NLP Analysis:** Tokenization, POS tagging, and error detection.
