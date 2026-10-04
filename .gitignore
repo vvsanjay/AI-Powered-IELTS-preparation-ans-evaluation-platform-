@@ -1,0 +1,35 @@
+# Python environments and generated files
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local configuration and runtime data
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.db
+*.sqlite
+*.sqlite3
+uploads/
+logs/
+
+# Frontend build artifacts
+node_modules/
+build/
+dist/
+coverage/
+
+# Local editor / OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

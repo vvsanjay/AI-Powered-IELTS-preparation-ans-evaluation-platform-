@@ -1,76 +1,73 @@
-# AI-Powered-IELTS-preparation-and-evaluation-platform
+# Bandwise
 
-# Bandwise AI: AI-Powered IELTS Preparation & Evaluation Platform
-**Presented by Team Hackoholics** | *Hackathon 2026 Submission*
+**IELTS practice backend scaffold — Team Hackoholics.**
 
+Bandwise explores the backend of an IELTS speaking and writing practice service: account registration, submission storage, speech transcription, and practice-history summaries.
 
-## 🚀 Project Overview
-**Bandwise AI** is an AI-driven platform designed to democratize IELTS preparation. [cite_start]It simulates real Speaking and Writing tests to evaluate performance and deliver personalized improvement paths.
+**Status:** prototype backend. Speaking and writing band scores are fixed placeholders in the code. A trained scoring model, criterion-level assessment, and examiner validation have not been implemented in this repository.
 
-Unlike generic grammar checkers, Bandwise AI utilizes advanced NLP and speech processing to provide **criterion-aligned scoring** that mirrors the official IELTS band descriptors.
+## What exists
 
----
+| Feature | Current behavior |
+| --- | --- |
+| Registration & login | Stores password hashes and returns JWTs |
+| Speaking submission | Saves uploaded audio and calls Google's speech-recognition service |
+| Speaking scores | Returns hardcoded criterion scores and overall band |
+| Writing submission | Stores essay text with hardcoded scores and empty corrections |
+| Practice dashboard | Returns counts, average stored scores, and mistake-log entries |
+| Subscription route | Updates stored plan fields; no payment integration |
 
- 🚩 The Problem
-Candidates face immense pressure to achieve target scores, but existing tools fall short:
-* **Lack of Accuracy:** Generic tools cannot provide band estimates aligned with official descriptors.
-* **High Costs:** Professional tutoring is expensive ($200+ per test) and not scalable.
-***Accessibility:** Candidates need on-demand practice without waiting 2-3 weeks for feedback.
+The project consists of [bandwise.py](bandwise.py). There is no React frontend, FastAPI backend, trained PyTorch model, or published validation dataset in this checkout.
 
-💡 Our Solution
-Bandwise AI closes the gap between practice and performance with three core pillars:
+## Technologies
 
-1. Real-Time Speaking Evaluation 
-* **Speech Capture:** Real-time recording with Speech-to-Text (STT) transcription and precise timestamps.
-* **Feature Extraction:** Analyzes audio for **Fluency (35%)**, **Lexical Resource (25%)**, **Grammar (20%)**, and **Pronunciation (20%)**.
-* **Instant Feedback:** Processing time of ~45 seconds with **92% accuracy** against human raters.
+Python · Flask · Flask-CORS · Flask-SQLAlchemy · SQLite by default · PyJWT · SpeechRecognition · python-dotenv
 
-### 2. Automated Writing Scoring
-***Deep Analysis:** Evaluates essays based on **Task Response**, **Cohesion**, **Lexical Resource**, and **Grammar*.
-**Rubric Mapping:** Maps features directly to official IELTS Band 1-9 scales.
-**Performance:** Average processing time of 32 seconds with **89% accuracy**.
+Audio is sent to an external transcription service by `recognize_google`; transcription is not local or offline. There is no timestamp/prosody analysis in the current implementation.
 
-###3. Personalized Analytics & Adaptive Learning
-* **Micro-Drills:** Generates 5-10 minute focused exercises targeting specific skill gaps (e.g., "lexical resource" drills)[cite: 171].
-* **Progress Dashboard:** Tracks score trends over time and identifies recurring error patterns.
+## Run locally
 
----
+```bash
+git clone https://github.com/vvsanjay/AI-Powered-IELTS-preparation-ans-evaluation-platform-.git
+cd AI-Powered-IELTS-preparation-ans-evaluation-platform-
+python -m venv .venv
+source .venv/bin/activate
+# Windows PowerShell: .venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+cp .env.example .env
+mkdir -p uploads
+python bandwise.py
+```
 
-## ⚙️ Technical Architecture
+Set a locally generated `SECRET_KEY` in `.env`. Windows users can create the environment file and `uploads` folder through their file manager or PowerShell.
 
-### Speaking Pipeline
-1.  **Input:** User records speech via web/mobile interface.
-2.  **Processing:**
-    * **STT Engine:** Converts speech to text with timestamps.
-    * **Prosody Analysis:** Measures pauses, pace, and intonation for fluency scoring.
-    * **NLP Engine:** Analyzes vocabulary richness and grammatical range.
-3.  **Output:** Band score (1-9) + Actionable feedback.
+The development server listens on `http://127.0.0.1:5000` and creates its database tables at startup. These setup instructions follow the source imports; dependency resolution and the full runtime workflow still need verification.
 
-### Writing Pipeline 
-1.  **Input:** User submits essay (Task 1 or Task 2).
-2.  **Processing:**
-    * **NLP Analysis:** Tokenization, POS tagging, and error detection.
-    * **Cohesion Check:** Analyzes linking words and paragraph structure.
-3.  **Output:** Band score (1-9) + Paragraph-level insights[cite: 103].
+## API routes
 
----
+| Method | Route | Purpose |
+| --- | --- | --- |
+| POST | `/api/auth/register` | Create an account |
+| POST | `/api/auth/login` | Obtain a login token |
+| POST | `/api/speaking/upload` | Upload audio and store a transcript |
+| POST | `/api/writing/submit` | Store an essay |
+| GET | `/api/dashboard/<user_id>` | Summarize practice records |
+| POST | `/api/subscription/upgrade` | Change stored subscription fields |
 
-## 🛠 Tech Stack
-* **Frontend:** React.js, Tailwind CSS, Recharts (for analytics).
-* **Backend:** FastAPI (Python).
-* **AI/ML:**
-    * *Natural Language Processing:* NLTK, Spacy, Transformers.
-    * *Speech Processing:* Librosa, SpeechRecognition, PyTorch.
-  **Data:** Models validated against 5000+ human-rated responses.
+## Important prototype boundaries
 
----
+The non-auth routes accept supplied user IDs without enforcing the issued JWTs. Input validation, ownership checks, upload limits, and error handling need work before hosting this beyond a local prototype. The app runs with Flask debug mode enabled.
 
-## 📊 Validation & Quality Assurance
-We ensure trust through rigorous validation:
-***Corpus Validation:** Models trained on 5000+ essays/audio clips rated by ex-IELTS examiners[cite: 114].
-* **Inter-Rater Reliability:** Cohen's Kappa score of **0.85**, indicating strong agreement with human experts[cite: 122].
-* **Continuous Calibration:** Monthly sessions with expert raters to maintain grading standards[cite: 118].
+Current scores should be read only as demonstration values. There is no evidence here for accuracy percentages, agreement with examiners, processing-time benchmarks, or thousands of rated training responses.
 
-* **Demo URL:** [demo.bandwise.ai](https://demo.bandwise.ai)
+## Next milestones
 
+- Enforce authentication and ownership across all user-specific routes.
+- Replace placeholder scores with a clearly specified, testable assessment pipeline.
+- Add a practice UI, upload handling, and meaningful feedback.
+- Evaluate with independently rated examples and publish the methodology and results.
+- Add integration tests and a reproducible deployment configuration.
 
+## Team credit
+
+The original README identifies **Team Hackoholics** and a hackathon submission. That team credit is retained; individual application-code contributions are not inferred.
